@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html data-theme="business" lang="eng">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="title" content="" />
+    <meta name="author" content="AMIV" />
+    <meta name="language" content="english" />
+    <meta name="robots" content="index/follow" />
+    <meta name="revised" content="" />
+    <meta name="rating" content="safe for kids" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+    <body class="h-screen font-mainFont overflow-x-hidden">
+        <nav class="w-full h-36 grid border border-primary">
+            <ul class="grid grid-cols-5 text-center">
+                <li class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl">About</li>
+                <li class="col-start-3 col-end-4 flex justify-center items-center font-bold text-4xl">Info</li>
+                <li class="col-start-4 col-end-5 flex justify-center items-center font-bold text-4xl">Contact</li>
+            </ul>
+        </nav>
+        <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-secondary bg-squares">
+            
+            <div class="col-start-2 col-end-3 flex flex-col items-center justify-center">
+                <h1 class="text-3xl text-white font-bold col-start-2 col-end-3 text-center leading-none">
+                    VR 360 Views
+                 </h1>
+                 <div id="left" class="bg-white w-72 h-2 text-center"></div>
+                 <div id="center" class="w-36 h-36 rounded-full bg-white">
+                    <div id="rightStick" class="w-2 h-[150px] bg-white "></div>
+                    <div id="leftStick" class="w-2 h-[150px] bg-white ml-auto"></div>
+                </div>
+                <div id="right" class="bg-white w-72 h-2 text-center"></div>
+                
+                
+                 
+                
+            </div>
+            <div class="text-3xl text-white font-bold underline col-start-1 col-end-4 text-center">
+                <ul>
+                    <li>Matterport 3D Services</li>
+                    <li>Videography</li>
+                </ul>
+             </div>
+            
+            
+        </main>
+        <footer class="w-full h-36 grid border border-primary">
+            <ul class="grid grid-cols-5 text-center">
+                <li class="col-start-2 col-end-3 flex justify-center items-center">About</li>
+                <li class="col-start-3 col-end-4 flex justify-center items-center">Info</li>
+                <li class="col-start-4 col-end-5 flex justify-center items-center">Contact</li>
+            </ul>
+        </footer>
+        <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
+        <dialog id="colorReference"></dialog>
+        <script src="./colorReference.js" type="module"></script>
+        <script type="module">
+            import { gsap } from 'gsap';
+            gsap.fromTo('#left', { x: -1000 }, { x: 0, duration: 3 }, );
+            gsap.fromTo('#right', { x: 1000 }, { x: 0, duration: 3 }, );
+            gsap.fromTo('#rightStick', { x: 1000 }, { x: 209, duration: 3 }, );
+            gsap.fromTo('#leftStick', { x: -1000, y: -1000 }, { x: -209, y: -150, duration: 3 }, );
+            gsap.fromTo('#center', { opacity: -3 }, { opacity: 1, duration: 3 }, );
+        </script>
+    </body>
+</html>
