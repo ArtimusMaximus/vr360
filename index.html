@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="/dist/output.css" rel="stylesheet">
 </head>
-    <body class="h-screen font-mainFont overflow-x-hidden">
+    <body class="h-full font-mainFont overflow-x-hidden">
         <nav class="grid w-full h-36 border border-primary">
             <ul class="hidden sm:grid grid-cols-5 text-center">
                 <li class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-accent">About</li>
@@ -36,7 +36,7 @@
             </ul>
             <!-- ham menu -->
             <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 fixed right-10 top-12 cursor-pointer">|||</div>
-            <div class="logo bg-secondary-content w-32 h-32 mt-2 ml-2 sm:hidden"></div>
+            <!-- <div class="logo bg-secondary-content w-32 h-32 mt-2 ml-2 sm:hidden"></div> -->
             <div id="dropDown" class="hidden fixed right-[35px] top-[120px] sm:hidden bg-base-200">
                 <ul class="border border-solid border-info p-2">
                     <li class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl">About <hr /></li>
@@ -45,27 +45,51 @@
                 </ul>
             </div>
         </nav>
-        <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-neutral-content bg-squares">
+        <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-neutral-content bg-squares pb-10">
             
-            <div class="col-start-2 col-end-3 flex flex-col items-center justify-center">
-                <h1 class="text-3xl text-base-content font-bold col-start-2 col-end-3 text-center leading-none">
-                    VR 360 Views
+            <div class="col-start-1 col-end-4 flex flex-col items-center justify-center h-fit">
+                <h1 class="text-3xl text-base-content my-7 font-bold col-start-1 col-end-4 sm:col-start-2 sm:col-end-3 text-center leading-none">
+                    CH 3D Virtual Tours
                  </h1>
                  <div id="left" class="bg-white w-72 h-2 text-center"></div>
                  <div id="center" class="w-36 h-36 rounded-full bg-secondary">
+                    
                     <div id="rightStick" class="w-2 h-[150px] bg-white "></div>
                     <div id="leftStick" class="w-2 h-[150px] bg-white ml-auto"></div>
                 </div>
                 <div id="right" class="bg-white w-72 h-2 text-center"></div>
+                <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full absolute top-[239px]">
+                <!-- <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full  top-[239px]"> -->
             </div>
 
-            <div class="text-2xl sm:text-3xl text-white font-bold underline col-start-1 col-end-4 text-center">
-                <ul>
+            <!-- <div class="text-2xl sm:text-3xl text-white font-bold underline col-start-1 col-end-4 text-center h-full"> -->
+                <!-- <ul>
                     <li class="py-2">Matterport 3D Services</li>
-                    <li class="py-2">Videography</li>
-                    <li class="py-2">Drone photography</li>
-                </ul>
-             </div>
+                </ul> -->
+
+                <!-- <div class="card w-80 bg-base-100 shadow-xl mx-auto">
+                    <figure><img src="/src/images/mp.jpg" alt="Shoes" width="315" height="315" /></figure>
+                    <div class="card-body">
+                      <h2 class="card-title">Matterport 3D Services</h2>
+                      <p class="text-xl">Serving LA & Orange County</p>
+                      <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Pricing</button>
+                      </div>
+                    </div>
+                </div> -->
+
+                    
+             <!-- </div> -->
+             <div class="w-72 rounded-lg col-start-1 col-end-4 mx-auto my-auto row-start-2 border border-white">
+                <figure><img src="/src/images/mp.jpg" alt="Shoes" width="315" height="315" /></figure>
+                <div class="p-2">
+                    <h2 class="text-2xl">Matterport 3D Services</h2>
+                    <p class="text-xl">Serving LA & Orange County</p>
+                    <div class="py-2">
+                        <button class="btn btn-primary">Pricing</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer class="w-full h-36 grid border border-primary">
             <ul class="grid grid-cols-5 text-center">
