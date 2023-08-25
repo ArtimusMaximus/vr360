@@ -11,7 +11,8 @@ module.exports = {
       "tiles": "url('/src/images/batthern.png')",
       "mohagany": "url('/src/images/mahogany.jpg')",
       "slate": "url('/src/images/slate_bg.png')",
-      "alum": "url('/src/images/brushed-alum.png')"
+      "alum": "url('/src/images/brushed-alum.png')",
+      "mp": "url('/src/images/mp_2.png')",
     }
   },
   plugins: [require("daisyui")],

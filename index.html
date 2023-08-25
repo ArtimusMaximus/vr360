@@ -30,38 +30,40 @@
 </head>
     <body class="h-full font-mainFont overflow-x-hidden bg-base-300 bg-alum">
         <nav class="grid w-full h-36 border border-primary bg-base-200">
+            <div class="block sm:hidden ml-5"><img src="./src/images/rf_3d.png" width="100px" height="auto" alt="Risk Free 3D Logo"></div>
             <ul class="hidden sm:grid grid-cols-5 text-center">
                 <!-- <li id="aboutModal" class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener">About</li> -->
                 <li id="infoModal" class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Info</li>
                 <li id="contactModal" class="col-start-4 col-end-5 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Contact</li>
             </ul>
             <!-- ham menu -->
-            <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 fixed right-10 top-12 cursor-pointer">|||</div>
+            <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 fixed right-10 top-9 cursor-pointer">|||</div>
             <!-- <div class="logo bg-secondary-content w-32 h-32 mt-2 ml-2 sm:hidden"></div> -->
             <div id="dropDown" class="hidden fixed right-[35px] top-[120px] sm:hidden bg-base-200">
                 <ul class="border border-solid border-info p-2">
                     <!-- <li id="aboutModal" class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl modalListener modalListener">About <hr /></li> -->
-                    <li id="infoModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener modalListener">Info <hr /></li>
-                    <li id="contactModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener modalListener">Contact <hr /></li>
+                    <li id="infoModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener hover:cursor-pointer">Info <hr /></li>
+                    <li id="contactModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener hover:cursor-pointer">Contact <hr /></li>
                 </ul>
             </div>
         </nav>
         <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-neutral-content bg-tiles bg-base-100 pb-10">
             
             <div class="col-start-1 col-end-4 flex flex-col items-center justify-center h-fit">
-                <h1 class="text-3xl text-base-content my-7 font-bold col-start-1 col-end-4 sm:col-start-2 sm:col-end-3 text-center leading-none">
-                Risk Free 3D
+                <h1 class="text-9xl text-base-content mt-7 font-bold col-start-1 col-end-4 sm:col-start-2 sm:col-end-3 text-center leading-none">
+                Risk Free <span class="text-info">3D</span>
                  </h1>
+                 <h2 class="text-6xl text-base-content text-center mb-4">Zero initial cost</h2>
+                 <h3 class="text-2xl text-success italic mb-4">Pay only if the property sells!</h3>
                  <!-- <h2></h2>
                  <h3 class="italic my">No upfront cost!</h3> -->
                  <div id="left" class="bg-base-content w-72 h-2 text-center"></div>
-                 <div id="center" class="w-36 h-36 rounded-full bg-secondary">
-                    
+                 <div id="center" class="w-36 h-36 rounded-full bg-mp bg-cover">
                     <div id="rightStick" class="w-2 h-[150px] bg-base-content"></div>
                     <div id="leftStick" class="w-2 h-[150px] bg-base-content ml-auto"></div>
                 </div>
                 <div id="right" class="bg-base-content w-72 h-2 text-center"></div>
-                <img src="./src/images/mp.jpg" alt="Matterport Pro2 3D camera" width="144" height="144" class="rounded-full absolute top-[239px]">
+                <!-- <img src="./src/images/mp.jpg" alt="Matterport Pro2 3D camera" width="144" height="144" class="rounded-full absolute top-[717px]"> -->
                 <!-- <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full  top-[239px]"> -->
             </div>
 
@@ -95,7 +97,7 @@
                 </div>
             </div>
             <!-- about -->
-            <section class="mx-auto col-start-1 col-end-4 sm:w-3/4 md:w-1/2 px-4">
+            <section class="mx-auto col-start-1 col-end-4 sm:w-3/4 md:w-1/2 px-4 pt-6">
                 <div class="collapse collapse-arrow bg-base-200">
                     <input type="radio" name="my-accordion-2" checked="checked" /> 
                     <div class="collapse-title text-xl font-medium">
@@ -124,11 +126,6 @@
                     </div>
                   </div>
             </section>
-
-
-
-
-
         </main>
         <footer class="w-full h-36 grid border border-primary bg-base-200">
             <ul class="grid grid-cols-5 text-center">
@@ -138,7 +135,7 @@
                 <li class="row-start-1 col-start-3 col-end-4 mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent"><a href="#">Top</a></li>
             </ul>
         </footer>
-        <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%]"></dialog>
+        <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%] overflow-x-hidden"></dialog>
 
 
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
@@ -151,6 +148,8 @@
             gsap.fromTo('#rightStick', { x: 1000, y: 150 }, { x: 208, y: 0, duration: 3 }, );
             gsap.fromTo('#leftStick', { x: -1000, y: 0 }, { x: -208, y: -150, duration: 3 }, );
             gsap.fromTo('#center', { opacity: -3 }, { opacity: 1, duration: 3 }, );
+
+            
         </script>
         <script type="module">
             import { gsap } from 'gsap';
@@ -167,16 +166,48 @@
 
                     gsap.fromTo(dropDown, { y: 100, opacity: 0 }, { y: 0, opacity: 1, ease: 'elastic', duration: 3 } )
                 });
-
-                
-                    
-
         </script>
-        <script type="module">
-    import { contact, about, info, pricing } from './pricingInfoAboutContactText.js';
-    const mainModal = document.querySelector('#mainModal');
-    const _ = null;
-    const modalListener = document.querySelectorAll('.modalListener')
+    <script type="module">
+        import { contact, about, info, pricing } from './pricingInfoAboutContactText.js';
+        import { gsap } from 'gsap';
+        const mainModal = document.querySelector('#mainModal');
+        const modalListener = document.querySelectorAll('.modalListener');
+        function animateH1()
+            {
+                const h1_1 = document.getElementById('rfPricingModel1');
+                const h1_2 = document.getElementById('rfPricingModel2');
+                const h1_3 = document.getElementById('rfPricingModel3');
+                gsap.fromTo(h1_1, {
+                    x: 2000,
+                    opacity: 0
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    // ease: 'elastic',
+                    duration: 1
+                });
+                gsap.fromTo(h1_2, {
+                    x: -4000,
+                    opacity: 0
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    // ease: 'elastic',
+                    duration: 2
+                });
+                gsap.fromTo(h1_3, {
+                    x: 6000,
+                    opacity: 0
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    // ease: 'elastic',
+                    duration: 3
+                });
+            }
 
 modalListener.forEach(modal => modal.addEventListener('click', e => reusableModal(e.target.id, mainModal, contact, about, info, pricing)))
 function reusableModal(id, mainModal, contact, about, info, pricing)
@@ -185,10 +216,15 @@ function reusableModal(id, mainModal, contact, about, info, pricing)
         case "pricingModal":
             mainModal.innerHTML = pricing;
             mainModal.showModal();
+            document.querySelectorAll('.modalClose').forEach(modal => modal.addEventListener('click', e => {
+                    mainModal.close();
+                }));
         break
             case "infoModal":
                 mainModal.innerHTML = info; 
                 mainModal.showModal();
+                mainModal.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                animateH1();
                 document.querySelectorAll('.modalClose').forEach(modal => modal.addEventListener('click', e => {
                     mainModal.close();
                 }));
