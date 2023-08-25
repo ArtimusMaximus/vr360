@@ -26,39 +26,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-    <body class="h-full font-mainFont overflow-x-hidden">
-        <nav class="grid w-full h-36 border border-primary">
+    <body class="h-full font-mainFont overflow-x-hidden bg-base-300 bg-alum">
+        <nav class="grid w-full h-36 border border-primary bg-base-200">
             <ul class="hidden sm:grid grid-cols-5 text-center">
-                <li class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-accent">About</li>
-                <li class="col-start-3 col-end-4 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-accent">Info</li>
-                <li class="col-start-4 col-end-5 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-accent">Contact</li>
+                <!-- <li id="aboutModal" class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener">About</li> -->
+                <li id="infoModal" class="col-start-2 col-end-3 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Info</li>
+                <li id="contactModal" class="col-start-4 col-end-5 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Contact</li>
             </ul>
             <!-- ham menu -->
             <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 fixed right-10 top-12 cursor-pointer">|||</div>
             <!-- <div class="logo bg-secondary-content w-32 h-32 mt-2 ml-2 sm:hidden"></div> -->
             <div id="dropDown" class="hidden fixed right-[35px] top-[120px] sm:hidden bg-base-200">
                 <ul class="border border-solid border-info p-2">
-                    <li class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl">About <hr /></li>
-                    <li class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl">Info <hr /></li>
-                    <li class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl">Contact <hr /></li>
+                    <!-- <li id="aboutModal" class="text-primary hover:text-base-content w-fit my-1 py-1 text-3xl modalListener modalListener">About <hr /></li> -->
+                    <li id="infoModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener modalListener">Info <hr /></li>
+                    <li id="contactModal" class="text-primary hover:text-info w-fit my-1 py-1 text-3xl modalListener modalListener">Contact <hr /></li>
                 </ul>
             </div>
         </nav>
-        <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-neutral-content bg-squares pb-10">
+        <main class="w-screen sm:w-3/4 mx-auto grid grid-cols-3 gap-4 h-full border border-neutral-content bg-tiles bg-base-100 pb-10">
             
             <div class="col-start-1 col-end-4 flex flex-col items-center justify-center h-fit">
                 <h1 class="text-3xl text-base-content my-7 font-bold col-start-1 col-end-4 sm:col-start-2 sm:col-end-3 text-center leading-none">
-                    CH 3D Virtual Tours
+                Risk Free 3D
                  </h1>
-                 <div id="left" class="bg-white w-72 h-2 text-center"></div>
+                 <!-- <h2></h2>
+                 <h3 class="italic my">No upfront cost!</h3> -->
+                 <div id="left" class="bg-base-content w-72 h-2 text-center"></div>
                  <div id="center" class="w-36 h-36 rounded-full bg-secondary">
                     
-                    <div id="rightStick" class="w-2 h-[150px] bg-white "></div>
-                    <div id="leftStick" class="w-2 h-[150px] bg-white ml-auto"></div>
+                    <div id="rightStick" class="w-2 h-[150px] bg-base-content"></div>
+                    <div id="leftStick" class="w-2 h-[150px] bg-base-content ml-auto"></div>
                 </div>
-                <div id="right" class="bg-white w-72 h-2 text-center"></div>
-                <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full absolute top-[239px]">
+                <div id="right" class="bg-base-content w-72 h-2 text-center"></div>
+                <img src="./src/images/mp.jpg" alt="Matterport Pro2 3D camera" width="144" height="144" class="rounded-full absolute top-[239px]">
                 <!-- <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full  top-[239px]"> -->
             </div>
 
@@ -80,25 +83,64 @@
 
                     
              <!-- </div> -->
-             <div class="w-72 rounded-lg col-start-1 col-end-4 mx-auto my-auto row-start-2 border border-white">
-                <figure><img src="/src/images/mp.jpg" alt="Shoes" width="315" height="315" /></figure>
+             <div class="w-[330px] rounded-xl col-start-1 col-end-4 mx-auto my-auto row-start-2 border border-white overflow-hidden bg-black bg-opacity-80">
+                <figure><img id="dollHousePhoto" class="mx-auto" src="/src/images/doll_house_2_w.png" alt="Matterport Doll House" width="350" height="350" /></figure>
                 <div class="p-2">
                     <h2 class="text-2xl">Matterport 3D Services</h2>
                     <p class="text-xl">Serving LA & Orange County</p>
                     <div class="py-2">
-                        <button class="btn btn-primary">Pricing</button>
+                        <div class="absolute w-4 h-4 bg-info rounded-full animate-ping"></div>
+                        <button id="pricingModal" class="btn btn-success modalListener text-black font-bold text-lg">Pricing</button>
                     </div>
                 </div>
             </div>
+            <!-- about -->
+            <section class="mx-auto col-start-1 col-end-4 sm:w-3/4 md:w-1/2 px-4">
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" checked="checked" /> 
+                    <div class="collapse-title text-xl font-medium">
+                        Risk-Free Approach:
+                    </div>
+                    <div class="collapse-content"> 
+                      <p class="text-primary text-lg">At Risk Free 3D, we understand the challenges that come with selling a property. That's why we introduced our game-changing pricing model. With us, you can enjoy the benefits of a high-quality Matterport virtual tour upfront, without any upfront costs. Our commitment to your success means you only pay if your property sells. It's a risk-free investment that redefines the way you market your property.</p>
+                    </div>
+                  </div>
+                  <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" /> 
+                    <div class="collapse-title text-xl font-medium">
+                        Unrivaled Matterport Expertise:
+                    </div>
+                    <div class="collapse-content"> 
+                        <p class="text-primary text-lg">As pioneers in Matterport technology, we have mastered the art of creating immersive 3D tours that transport viewers into the heart of a property. Our expertise in crafting virtual experiences sets us apart, offering a window into properties like never before. With each scan, we capture the essence of a space, allowing buyers to explore, engage, and fall in love.</p>
+                    </div>
+                  </div>
+                  <div class="collapse collapse-arrow bg-base-200">
+                    <input type="radio" name="my-accordion-2" /> 
+                    <div class="collapse-title text-xl font-medium">
+                        A Decade of Excellence:                        
+                    </div>
+                    <div class="collapse-content"> 
+                        <p class="text-primary text-lg">For over 10 years, Risk Free 3D has been at the forefront of the real estate industry, delivering cutting-edge solutions that empower sellers, agents, and buyers. Our journey began with a vision to provide a unique experience that marries technology with the art of real estate marketing.</p>
+                    </div>
+                  </div>
+            </section>
+
+
+
+
+
         </main>
-        <footer class="w-full h-36 grid border border-primary">
+        <footer class="w-full h-36 grid border border-primary bg-base-200">
             <ul class="grid grid-cols-5 text-center">
-                <li class="col-start-2 col-end-3 sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent">About</li>
-                <li class="col-start-3 col-end-4 sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent">Info</li>
-                <li class="col-start-4 col-end-5 sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent">Contact</li>
-                <li class="row-start-2 col-start-3 col-end-4 mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent"><a href="#">Top</a></li>
+                <!-- <li id="aboutModal" class="col-start-2 col-end-3 sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-info modalListener">About</li> -->
+                <li id="infoModal" class="col-start-1 col-end-3 sm:col-start-2 sm:col-end-3 text-3xl sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Info</li>
+                <li id="contactModal" class="col-start-4 col-end-6 sm:col-start-4 sm:col-end-5 text-3xl sm:text-4xl mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Contact</li>
+                <li class="row-start-1 col-start-3 col-end-4 mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent"><a href="#">Top</a></li>
             </ul>
         </footer>
+        <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%]"></dialog>
+
+
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
         <dialog id="colorReference"></dialog>
         <script src="./colorReference.js" type="module"></script>
@@ -129,6 +171,75 @@
                 
                     
 
+        </script>
+        <script type="module">
+    import { contact, about, info, pricing } from './pricingInfoAboutContactText.js';
+    const mainModal = document.querySelector('#mainModal');
+    const _ = null;
+    const modalListener = document.querySelectorAll('.modalListener')
+
+modalListener.forEach(modal => modal.addEventListener('click', e => reusableModal(e.target.id, mainModal, contact, about, info, pricing)))
+function reusableModal(id, mainModal, contact, about, info, pricing)
+{
+    switch(id) {
+        case "pricingModal":
+            mainModal.innerHTML = pricing;
+            mainModal.showModal();
+        break
+            case "infoModal":
+                mainModal.innerHTML = info; 
+                mainModal.showModal();
+                document.querySelectorAll('.modalClose').forEach(modal => modal.addEventListener('click', e => {
+                    mainModal.close();
+                }));
+            break    
+                case "aboutModal":
+                    mainModal.innerHTML = about; 
+                    mainModal.showModal();
+                break
+                    case "contactModal":
+                        mainModal.innerHTML = contact; 
+                        mainModal.showModal();
+                    break
+        }
+}
+window.addEventListener('click', e => {
+    if (e.target === document.querySelector('dialog')) {
+        mainModal.close()
+    }
+});
+
+        </script>
+        <script type="module">
+            import dollHouse1 from './src/images/doll_house_1_w.png';
+            import dollHouse2 from './src/images/doll_house_2_w.png';
+
+            const imagesArray = [dollHouse1, dollHouse2];
+            const image = document.getElementById('dollHousePhoto');
+
+            let i = 0;
+            function changeImage()
+            {
+                image.src = imagesArray[i];
+                i = (i+1) % imagesArray.length;
+            }
+            setInterval(changeImage, 2000);
+        </script>
+        <script>
+            const printText = (word, speed, array, count, innerEl) => {
+                let arr = word.split('');
+                let length = arr.length;
+
+                setTimeout(function() {	
+                    newArr.push(arr[count - 1])
+                    innerEl.innerHTML = newArr.join('')
+                    if (count < length) {
+                        count += 1
+                        printText(word, speed, array, count, innerEl)
+                    }
+                }, speed)
+            }
+            
         </script>
     </body>
 </html>

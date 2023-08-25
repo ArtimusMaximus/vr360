@@ -7,7 +7,11 @@ module.exports = {
     },
     extend: {},
     backgroundImage: {
-      "squares": "url('/src/images/inflicted.png')"
+      "squares": "url('/src/images/inflicted.png')",
+      "tiles": "url('/src/images/batthern.png')",
+      "mohagany": "url('/src/images/mahogany.jpg')",
+      "slate": "url('/src/images/slate_bg.png')",
+      "alum": "url('/src/images/brushed-alum.png')"
     }
   },
   plugins: [require("daisyui")],

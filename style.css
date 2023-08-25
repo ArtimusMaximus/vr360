@@ -8,5 +8,10 @@
 }
 
 .fadeIn {
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn .25s ease-out;
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: .75;
 }
