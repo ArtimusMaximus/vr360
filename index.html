@@ -28,7 +28,7 @@
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-    <body class="h-full font-mainFont overflow-x-hidden bg-base-300 bg-alum">
+    <body class="h-full font-mainFont overflow-x-hidden bg-base-100 bg-alum">
         <nav class="grid w-full h-36 border border-primary bg-base-200">
             <div class="block sm:hidden ml-5"><img src="./src/images/rf_3d.png" width="100px" height="auto" alt="Risk Free 3D Logo"></div>
             <ul class="hidden sm:grid grid-cols-5 text-center">
@@ -53,35 +53,19 @@
                 <h1 class="text-9xl text-base-content mt-7 font-bold col-start-1 col-end-4 sm:col-start-2 sm:col-end-3 text-center leading-none">
                 Risk Free <span class="text-info">3D</span>
                  </h1>
-                 <h2 class="text-6xl text-base-content text-center mb-4">Zero initial cost</h2>
+                 <h2 class="text-5xl text-base-content text-center mb-4">Matterport 3D Tours for Real Estate</h2>
+                 <h2 class="text-4xl text-base-content text-center mb-4 italic">Zero initial cost</h2>
                  <h3 class="text-2xl text-success italic mb-4">Pay only if the property sells!</h3>
-                 <!-- <h2></h2>
-                 <h3 class="italic my">No upfront cost!</h3> -->
                  <div id="left" class="bg-base-content w-72 h-2 text-center"></div>
                  <div id="center" class="w-36 h-36 rounded-full bg-mp bg-cover">
                     <div id="rightStick" class="w-2 h-[150px] bg-base-content"></div>
                     <div id="leftStick" class="w-2 h-[150px] bg-base-content ml-auto"></div>
                 </div>
                 <div id="right" class="bg-base-content w-72 h-2 text-center"></div>
-                <!-- <img src="./src/images/mp.jpg" alt="Matterport Pro2 3D camera" width="144" height="144" class="rounded-full absolute top-[717px]"> -->
-                <!-- <img src="./src/images/mp.jpg" alt="" width="144" height="144" class="rounded-full  top-[239px]"> -->
+                
             </div>
 
-            <!-- <div class="text-2xl sm:text-3xl text-white font-bold underline col-start-1 col-end-4 text-center h-full"> -->
-                <!-- <ul>
-                    <li class="py-2">Matterport 3D Services</li>
-                </ul> -->
-
-                <!-- <div class="card w-80 bg-base-100 shadow-xl mx-auto">
-                    <figure><img src="/src/images/mp.jpg" alt="Shoes" width="315" height="315" /></figure>
-                    <div class="card-body">
-                      <h2 class="card-title">Matterport 3D Services</h2>
-                      <p class="text-xl">Serving LA & Orange County</p>
-                      <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Pricing</button>
-                      </div>
-                    </div>
-                </div> -->
+           
 
                     
              <!-- </div> -->
@@ -135,7 +119,7 @@
                 <li class="row-start-1 col-start-3 col-end-4 mx-auto w-fit flex justify-center items-center text-primary hover:cursor-pointer hover:text-accent"><a href="#">Top</a></li>
             </ul>
         </footer>
-        <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%] overflow-x-hidden"></dialog>
+        <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%] overflow-x-hidden rounded-md"></dialog>
 
 
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
@@ -249,8 +233,9 @@ window.addEventListener('click', e => {
         <script type="module">
             import dollHouse1 from './src/images/doll_house_1_w.png';
             import dollHouse2 from './src/images/doll_house_2_w.png';
+            import devices from './src/images/devices.png';
 
-            const imagesArray = [dollHouse1, dollHouse2];
+            const imagesArray = [devices, dollHouse1, dollHouse2];
             const image = document.getElementById('dollHousePhoto');
 
             let i = 0;
