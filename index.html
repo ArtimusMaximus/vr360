@@ -37,7 +37,7 @@
                 <li id="contactModal" class="col-start-4 col-end-5 flex justify-center items-center font-bold text-4xl w-fit mx-auto text-primary hover:cursor-pointer hover:text-info modalListener hover:underline">Contact</li>
             </ul>
             <!-- ham menu -->
-            <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 fixed right-10 top-9 cursor-pointer">|||</div>
+            <div id="hamIcon" class="sm:hidden hamMenu text-primary rotate-90 text-bold text-4xl p-4 absolute right-10 top-9 cursor-pointer">|||</div>
             <!-- <div class="logo bg-secondary-content w-32 h-32 mt-2 ml-2 sm:hidden"></div> -->
             <div id="dropDown" class="hidden fixed right-[35px] top-[120px] sm:hidden bg-base-200">
                 <ul class="border border-solid border-info p-2">
@@ -125,7 +125,7 @@
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
         <dialog id="colorReference"></dialog>
         <script src="./colorReference.js" type="module"></script>
-        <script type="module" defer>
+        <script type="module">
             import { gsap } from 'gsap';
             gsap.fromTo('#left', { x: -1000 }, { x: 0, duration: 3 }, );
             gsap.fromTo('#right', { x: 1000 }, { x: 0, duration: 3 }, );
