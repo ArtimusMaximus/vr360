@@ -125,7 +125,7 @@
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
         <dialog id="colorReference"></dialog>
         <script src="./colorReference.js" type="module"></script>
-        <script type="module">
+        <script type="module" defer>
             import { gsap } from 'gsap';
             gsap.fromTo('#left', { x: -1000 }, { x: 0, duration: 3 }, );
             gsap.fromTo('#right', { x: 1000 }, { x: 0, duration: 3 }, );
