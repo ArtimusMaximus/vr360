@@ -73,7 +73,8 @@
                 <figure><img id="dollHousePhoto" class="mx-auto lg:w-[778px]" src="/src/images/doll_house_2_w.png" alt="Matterport Doll House" width="350" height="350" /></figure>
                 <div class="p-2">
                     <h2 class="text-2xl">Matterport 3D Services</h2>
-                    <p class="text-xl">Serving LA & Orange County</p>
+                    <p class="text-xl">Serving LA & Orange County, CA</p>
+                    <p class="text-xl">Snohomish & King County, WA</p>
                     <div class="py-2">
                         <div class="absolute w-4 h-4 bg-info rounded-full animate-ping"></div>
                         <button id="pricingModal" class="btn btn-success modalListener text-black font-bold text-lg">Pricing</button>
@@ -120,7 +121,61 @@
             </ul>
         </footer>
         <dialog id="mainModal" class="fadeIn w-[90%] sm:w-[75%] md:w-[50%] overflow-x-hidden rounded-md"></dialog>
-
+        <dialog id="dialogContactModal" class="p-5 pt-6">
+            <section id="photoSection" class="items-center justify-center mb-5 mt-5">
+                <span id="closeContactModal" class="absolute right-4 top-2 text-3xl hover:cursor-pointer hover:text-error">X</span>
+                <form id="photoForm" class="mainFont font-thin " method="post" enctype="multipart/form-data">
+                  <div class="flex items-center justify-center flex-col">
+                    <select name="for_service" class="select select-primary w-full sm:w-72 max-w-xs m-2">
+                      <option disabled selected>Property Type?</option>
+                      <option>House</option>
+                      <option>Condo</option>
+                      <option>Apartment</option>
+                      <option>Industrial Building</option>
+                      <option>Construction Site</option>
+                    </select>
+                    <select name="service_details" class="select select-primary w-full sm:w-72 max-w-xs m-2">
+                      <option disabled selected>Approx sq. footage?</option>
+                      <option>500-1500</option>
+                      <option>1500-2000</option>
+                      <option>2000-2500</option>
+                      <option>2500-3500</option>
+                      <option>3500+</option>
+                    </select>
+                    <select name="job_location" class="select select-primary w-full sm:w-72 max-w-xs m-2">
+                        <option disabled selected>Job location</option>
+                        <option>Los Angeles/Orange County</option>
+                        <option>Seattle/Everett</option>
+                      </select>
+                </div>
+                  <div class="form-control w-full max-w-xs p-2 mx-auto">
+                    <label class="label">
+                      <span class="label-text text-lg">Contact Email</span>
+                      <span class="label-text">(required)</span>
+                    </label>
+                    <input name="from_email" type="email" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" required />
+                  </div>
+                  <div class="form-control w-full max-w-xs p-2 mx-auto">
+                    <label class="label">
+                      <span class="label-text text-lg">Contact Name</span>
+                    </label>
+                    <input name="from_name" type="text" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" />
+                  </div>
+                  <div class="form-control">
+                    <label class="label mx-auto">
+                      <span class="label-text text-lg">Additional Information</span>
+                    </label>
+                    <textarea name="text_body" class="inField textarea textarea-bordered h-24 w-3/4 mx-auto" placeholder="Add additional info. or comments here..."></textarea>
+                    <label class="label mx-auto">
+                      <span class="label-text-alt px-12 text-md">E.G. "Are floor plans possible?",<br /> "What is your turn around time for pictures?"</span>
+                    </label>
+                  </div>
+                  <div class="flex items-center justify-center">
+                    <button id="submitPhotoForm" type="submit" class="btn btn-primary mt-5 hover:bg-success hover:text-primary">Send Inquiry</button>
+                  </div>
+                </form>
+              </section>
+        </dialog>
 
         <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
         <dialog id="colorReference"></dialog>
@@ -217,16 +272,18 @@ function reusableModal(id, mainModal, contact, about, info, pricing)
                     mainModal.innerHTML = about; 
                     mainModal.showModal();
                 break
-                    case "contactModal":
-                        mainModal.innerHTML = contact; 
-                        mainModal.showModal();
+                    case "contactModal": 
+                        document.getElementById('dialogContactModal').showModal();
                     break
         }
 }
 window.addEventListener('click', e => {
     if (e.target === document.querySelector('dialog')) {
-        mainModal.close()
+        mainModal.close();
     }
+});
+document.getElementById('closeContactModal').addEventListener('click', () => {
+   document.getElementById('dialogContactModal').close(); 
 });
 
         </script>
