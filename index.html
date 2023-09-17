@@ -153,13 +153,13 @@
                       <span class="label-text text-lg">Contact Email</span>
                       <span class="label-text">(required)</span>
                     </label>
-                    <input name="from_email" type="email" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" required />
+                    <input id="email_3d" name="from_email" type="email" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" required />
                   </div>
                   <div class="form-control w-full max-w-xs p-2 mx-auto">
                     <label class="label">
                       <span class="label-text text-lg">Contact Name</span>
                     </label>
-                    <input name="from_name" type="text" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" />
+                    <input id="contactName_3d" name="from_name" type="text" placeholder="Type here" class="inField input input-bordered input-primary w-full max-w-xs" />
                   </div>
                   <div class="form-control">
                     <label class="label mx-auto">
@@ -167,17 +167,25 @@
                     </label>
                     <textarea name="text_body" class="inField textarea textarea-bordered h-24 w-3/4 mx-auto" placeholder="Add additional info. or comments here..."></textarea>
                     <label class="label mx-auto">
-                      <span class="label-text-alt px-12 text-md">E.G. "Are floor plans possible?",<br /> "What is your turn around time for pictures?"</span>
+                      <span class="label-text-alt px-12 text-md">E.G. "Are floor plans possible?",<br /> "What is the turn around time?"</span>
                     </label>
                   </div>
                   <div class="flex items-center justify-center">
                     <button id="submitPhotoForm" type="submit" class="btn btn-primary mt-5 hover:bg-success hover:text-primary">Send Inquiry</button>
                   </div>
+                  <div class="relative">
+                    <progress id="progressBarSuccess" class="items-center justify-center progress w-full mt-3 border border-white rounded-lg progress-success hidden bg-gradient-to-l from-black via-success to-success-content animate-pulse h-8" value="100" max="100"></progress>
+                    <span class="progress-txt absolute text-white left-1/4 sm:left-1/3 font-semibold bottom-[15%] text-sm shadow-2xl drop-shadow-2xl hidden">Inquiry Successfully Sent!</span>
+                    <progress id="progressBarError" class="items-center justify-center progress w-full mt-3 border border-white rounded-lg progress-error hidden bg-gradient-to-l from-black via-error to-error-content animate-pulse h-8" value="100" max="100"></progress>
+                    <span class="progress-txt absolute text-white left-1/4 sm:left-1/3 font-semibold bottom-[15%] text-sm shadow-2xl drop-shadow-2xl hidden">Error! Please try again...</span>
+                    <progress id="progressBarWarning" class="items-center justify-center progress w-full mt-3 border border-white rounded-lg progress-warning hidden bg-gradient-to-l from-black via-warning to-warning-content animate-pulse h-8" value="100" max="100"></progress>
+                    <span class="progress-txt absolute text-white left-1/4 sm:left-1/3 font-semibold bottom-[15%] text-sm shadow-2xl drop-shadow-2xl hidden">Email Address is required!</span>
+                  </div>
                 </form>
               </section>
         </dialog>
 
-        <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50">Color Ref</div>
+        <div id="openColorRef" class="fixed text-2xl text-white top-10 right-10 z-50 hidden">Color Ref</div>
         <dialog id="colorReference"></dialog>
         <script src="./colorReference.js" type="module"></script>
         <script type="module">
@@ -322,6 +330,115 @@ document.getElementById('closeContactModal').addEventListener('click', () => {
                 }, speed)
             }
             
+        </script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+        let fieldsFilled = false;
+        let pbSuccess, pbWarning, pbError, pbSuccessTxt, pbWarningTxt, pbErrorTxt, msg;
+        const formID = document.getElementById('photoForm');
+        
+        let progressBars = document.querySelectorAll('progress');
+        console.log('progress bars', progressBars);
+        
+        let pbSuccess3d       = progressBars[0];
+        let pbError3d         = progressBars[1];
+        let pbWarn3d          = progressBars[2];
+
+        let progressTxt       = document.querySelectorAll('.progress-txt');
+        
+        let pbSuccess3dTxt    = progressTxt[0];
+        let pbError3dTxt      = progressTxt[1];
+        let pbWarn3dTxt       = progressTxt[2];
+
+        // document.querySelectorAll('.radio').forEach((radio) => {
+        //   radio.addEventListener('click', e => {
+        //     if (e.target.id === 'webRadio') {
+        //       formID = 'webForm';
+        //     } else if (e.target.id === 'photoRadio') {
+        //       formID = 'photoForm'
+        //     }
+        //     console.log(formID);
+        //   });
+        // });
+        const emailjsObj = {
+          publicKey: 'z_9kRE5DNBG4paR3d',
+          service_id: 'service_nyzo8da',
+          template_id: 'template_390imic'
+        };
+        const { publicKey, service_id, template_id } = emailjsObj;
+
+        (function(){
+          emailjs.init(publicKey);
+        })();
+
+        function submitForm(e) {
+          e.preventDefault();
+          console.log(e.target);
+          if (document.querySelector('#email_3d').value !== '' && document.querySelector('#contactName_3d').value !== '') {
+            fieldsFilled = true;
+            console.log('value 3d',  document.querySelector('#email_3d').value);
+          } else if (!fieldsFilled) {
+            if (e.target.id === 'submitPhotoForm') {
+              pbWarning = pbWarn3d; 
+              msg = pbWarn3dTxt;
+            } 
+            pbWarning.classList.remove('hidden');
+            pbWarning.classList.add('flex');
+            msg.classList.remove('hidden');
+            countDown(pbWarning, pbWarning.value, msg);
+          }
+          if (fieldsFilled) {
+            emailjs.sendForm(service_id, template_id, document.querySelector('form'))
+            .then(function(res) {
+             
+              console.log('SUCCESS!', res.status, res.text);
+                if (e.target.id === 'submitPhotoForm' && res.status === 200) {
+                    pbSuccess = pbSuccess3d;
+                    msg = pbSuccess3dTxt
+                    pbSuccess.classList.remove('hidden');
+                    pbSuccess.classList.add('flex');
+                    msg.classList.remove('hidden');
+                    countDown(pbSuccess, pbSuccess.value, msg);
+                document.querySelectorAll('.inField').forEach((i) => {
+                  i.value = '';
+                  fieldsFilled = false;
+                });
+                
+              }
+            }, function(error) {
+              
+              console.log('Submit Failed...', error);
+              (() => {
+                if (e.target.id === 'submitPhotoForm') {
+                  pbError = pbError3d;
+                  msg = pbError3dTxt;
+                }
+                pbError.classList.remove('hidden');
+                pbError.classList.add('flex');
+                msg.classList.remove('hidden');
+                countDown(pbError, pbError.value, msg);
+              })();
+            });
+          }
+          
+        }
+        document.querySelector('#submitPhotoForm').addEventListener('click', e => {
+          submitForm(e);
+        });
+        function countDown(progressBar, progressVal, msg) {
+            let ms = 25;
+            let count = setInterval(() => {
+            if (progressVal === 0) {
+                clearInterval(count);
+                progressVal = 400;
+                progressBar.classList.add('hidden');
+                msg.classList.add('hidden');
+            }
+            // console.log(progressVal);
+            progressBar.value = progressVal;
+            return progressVal -= .5;
+            }, ms);  
+        }
         </script>
     </body>
 </html>
